@@ -43,8 +43,8 @@ export default function Header() {
   return (
       <header className="inset-x-0 top-0 z-50 bg-gray-800 text-gray-400 divide-y divide-gray-500/8">
         <nav className="flex items-center justify-between p-6 lg:px-8" aria-label="Global">
-          <div className="flex lg:flex-1">
-            <Link to="#" className="-m-1.5 p-1.5">
+          <div className="flex">
+            <Link to="/" className="-m-1.5 p-1.5">
               <span className="sr-only">Your Company</span>
               <img
                 className="h-8 w-auto"
@@ -63,7 +63,7 @@ export default function Header() {
               <Bars3Icon className="h-6 w-6" aria-hidden="true" />
             </button>
           </div>
-          <div className="hidden lg:flex lg:gap-x-12">
+          <div className="hidden lg:flex lg:gap-x-12 ml-6">
             {navigation.map((item) => (
               <Link key={item.name} to={item.href} className="text-sm font-semibold leading-6">
                 {item.name}
@@ -71,7 +71,7 @@ export default function Header() {
             ))}
           </div>
           <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-            <Link href="#" className="text-sm font-semibold leading-6">
+            <Link to="/login" className="text-sm font-semibold leading-6">
               Log in <span aria-hidden="true">&rarr;</span>
             </Link>
           </div>
@@ -80,7 +80,7 @@ export default function Header() {
           <div className="fixed inset-0 z-50"/>
           <Dialog.Panel className="fixed inset-y-0 right-0 z-50 w-full overflow-y-auto bg-gray-800 text-gray-400 px-6 py-6 sm:max-w-sm sm:ring-1 sm:ring-gray-900/10">
             <div className="flex items-center justify-between">
-              <Link href="#" className="-m-1.5 p-1.5">
+              <Link to="/home" className="-m-1.5 p-1.5">
                 <span className="sr-only">Your Company</span>
                 <img className="h-8 w-auto" src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600" alt=""/>
               </Link>
@@ -106,7 +106,7 @@ export default function Header() {
                   ))}
                 </div>
                 <div className="py-6">
-                  <Link to="#" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50 hover:text-gray-900">
+                  <Link to="/login" className="-mx-3 block rounded-lg px-3 py-2.5 text-base font-semibold leading-7 hover:bg-gray-50 hover:text-gray-900">
                     Log in
                   </Link>
                 </div>
