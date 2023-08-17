@@ -2,6 +2,7 @@ import React from 'react'
 import {Routes,Route} from 'react-router-dom';
 import Home from './Home';
 import Header from './Header';
+import Categories from "./Categories"
 
 export default function Pages() {
   return (
@@ -9,6 +10,7 @@ export default function Pages() {
         <Header/>
         <Routes>
             <Route path="/" element={<Home/>}/>
+            <Route path="/categories/:id" element={<Categories/>}/>
             <Route path="/about" element={<div>About</div>}/>
             <Route path="/contact" element={<div>Contact</div>}/>
         </Routes>
