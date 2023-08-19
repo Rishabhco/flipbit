@@ -1,5 +1,6 @@
 import React,{useState} from "react"
 import {Link,useNavigate} from "react-router-dom"
+import {instance} from "../auth/auth"
 
 export default function Login() {
   const [email,setEmail]=useState("");
@@ -8,8 +9,16 @@ export default function Login() {
 
   const handleSubmit=(event)=>{
     event.preventDefault();
-    console.log("Logged in clicked!!",email,password) 
-    navigate("/");
+    instance.post("auth/login",{
+      email:email,
+      password:password
+    }).then((res)=>{
+      localStorage.setItem("token", res.data.data.token)
+      localStorage.setItem("user",JSON.stringify(res.data.data.user))
+      navigate("/");
+    }).catch((err)=>{
+      console.log(err)
+    })
   }
 
   return (
