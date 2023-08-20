@@ -8,12 +8,17 @@ export default function Home() {
   const [brands, setBrands] = useState([])
 
   useEffect(()=>{
-    instance.get("fetchCategories").then((res)=>{
+    instance.get("item/fetchCategories",{
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      }
+    }).then((res)=>{
       setList(res.data)
     }).catch((err)=>{
       console.log(err)
     })
-    instance.get("fetchBrands").then((res)=>{
+    instance.get("item/fetchBrands").then((res)=>{
       setBrands(res.data)
     }).catch((err)=>{
       console.log(err)
